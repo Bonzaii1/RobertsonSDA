@@ -14,7 +14,7 @@ export const Navbar = () => {
 
 
     return (
-        <div className='w-full flex justify-between bg-blue-500 text-white sticky top-0'>
+        <div className='w-full flex justify-between bg-primary text-white sticky top-0'>
             <div className='p-6'>Logo</div>
             <div className='flex'>
                 {

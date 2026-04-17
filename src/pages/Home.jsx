@@ -3,19 +3,35 @@ import { Navbar } from './Navbar.jsx'
 
 export const Home = () => {
 
-    let card_items = ["content1", "content2", "content3"]
+    const card_items = [
+        {
+            title: "Card Title One",
+            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum dolor ipsum unde eligendi dolores nulla deserunt omnis libero perferendis vel qui quasi possimus autem.",
+            image: "/church_background.jpg",
+        },
+        {
+            title: "Card Title Two",
+            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum dolor ipsum unde eligendi dolores nulla deserunt omnis libero perferendis vel qui quasi possimus autem.",
+            image: "/church_background.jpg",
+        },
+        {
+            title: "Card Title Three",
+            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum dolor ipsum unde eligendi dolores nulla deserunt omnis libero perferendis vel qui quasi possimus autem.",
+            image: "/church_background.jpg",
+        },
+    ]
 
 
     return (
         <>
-            <div className='w-full h-full'>
+            <div className='w-full h-full z-0'>
                 {/* Navbar */}
                 <Navbar />
 
                 {/* Church Background Hero */}
                 <div className='flex justify-end text-white w-full bg-[url("../../public/church_background.jpg")] bg-cover bg-top-left relative'>
                     <div className='absolute inset-0 bg-linear-to-r from-transparent from-40% to-gray-900' />
-                    <div className='relative z-10 mx-24 my-12 p-12 text-right'>
+                    <div className='relative mx-24 my-12 p-12 text-right'>
                         <h1 className='font-bold text-4xl'>Robertson SDA</h1>
                         <br />
                         <h3 className='font-bold text-2xl'>Saturday Service Times</h3>
@@ -66,33 +82,44 @@ export const Home = () => {
 
                 {/* Card Sections */}
 
-                <div className='bg-gray-200'>
-                    {
-                        card_items.map((item, idx) => {
-                            if (idx % 2 == 0) {
-                                return (
-                                    <div className='flex justify-evenly p-4'>
-                                        <p>img</p>
-                                        <p>{item}</p>
-                                    </div>
-                                )
-                            }
-                            else {
-                                return (
-                                    <div className='flex justify-evenly p-4'>
-                                        <p>{item}</p>
-                                        <p>img</p>
-                                    </div>
-                                )
-                            }
-                        })
-                    }
+                <div className='bg-gray-100 py-16'>
+                    <div className='max-w-4xl mx-auto flex flex-col gap-12 px-18'>
+                        {card_items.map((item, idx) => {
+                            const imgEl = (
+                                <div className='w-60 shrink-0'>
+                                    <img src={item.image} alt={item.title} className='w-full h-full object-cover rounded shadow' />
+                                </div>
+                            )
+                            const textEl = (
+                                <div className='flex flex-col justify-center bg-white p-15 flex-1'>
+                                    <h2 className='text-xl font-bold mb-2'>{item.title}</h2>
+                                    <p className='text-gray-600 leading-relaxed text-sm'>{item.description}</p>
+                                </div>
+                            )
+                            return (
+                                <div key={idx} className='flex items-stretch gap-10'>
+                                    {idx % 2 === 0 ? <>{imgEl}{textEl}</> : <>{textEl}{imgEl}</>}
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
 
 
                 {/* Church Visions */}
 
+                <div className='w-full h-25 bg-linear-to-r/srgb from-indigo-500 to-teal-400'>
+                    <div className='w-full h-full flex justify-center p-8'>
+                        <h3 className='text-white font-bold text-xl'>Our Church Vision Page</h3>
+                    </div>
+                </div>
 
+
+                {/* Upcoming events*/}
+
+                <div className='w-full h-50 bg-white'>
+
+                </div>
 
             </div>
         </>

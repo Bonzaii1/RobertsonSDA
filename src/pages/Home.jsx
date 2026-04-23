@@ -38,12 +38,12 @@ export const Home = () => {
                 <Navbar />
 
                 {/* Church Background Hero */}
-                <div className='flex justify-end text-white w-full bg-[url("../../public/church_background.jpg")] bg-cover bg-top-left relative'>
+                <div className='flex justify-end text-white w-full bg-[url("../../public/church_background.jpg")] bg-cover bg-top-left relative py-14'>
                     <div className='absolute inset-0 bg-linear-to-r from-transparent from-40% to-gray-900' />
-                    <div className='relative mx-24 my-16 p-12 text-right flex flex-col gap-6'>
+                    <div className='relative mx-4 sm:mx-12 md:mx-24 my-6 md:my-16 p-6 md:p-12 text-right flex flex-col gap-6'>
                         <div className='flex flex-col gap-2'>
                             <p className='text-xs font-semibold uppercase tracking-widest text-white/60'>Houston, TX</p>
-                            <h1 className='font-bold text-5xl leading-tight'>Robertson SDA</h1>
+                            <h1 className='font-bold text-3xl md:text-5xl leading-tight'>Robertson SDA</h1>
                         </div>
                         <div className='flex flex-col gap-1'>
                             <p className='text-xs font-semibold uppercase tracking-widest text-white/60 mb-2'>Saturday Services</p>
@@ -63,12 +63,12 @@ export const Home = () => {
                 {/* Welcome Message */}
 
                 <div className='bg-[url("/wavy.png")] bg-cover bg-top-left'>
-                    <div className='flex flex-col items-center py-20 px-6'>
+                    <div className='flex flex-col items-center py-12 md:py-20 px-6'>
                         <div className='max-w-2xl text-center flex flex-col gap-5'>
                             <p className='text-xs font-semibold uppercase tracking-widest text-primary'>Welcome</p>
-                            <h1 className='text-4xl font-bold leading-tight'>Robertson Seventh-day Adventist Church</h1>
-                            <p className='text-gray-500 leading-relaxed'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum dolor ipsum unde eligendi dolores nulla deserunt omnis libero perferendis vel qui quasi possimus autem, quisquam nemo doloribus fugit commodi molestiae.</p>
-                            <p className='text-gray-500 leading-relaxed'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis dignissimos ipsam animi sed, deleniti odio labore mollitia quis hic esse ipsum ex? Doloremque iure laborum saepe labore ullam.</p>
+                            <h1 className='text-2xl sm:text-3xl md:text-4xl font-bold leading-tight'>Robertson Seventh-day Adventist Church</h1>
+                            <p className='text-gray-700 leading-relaxed'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum dolor ipsum unde eligendi dolores nulla deserunt omnis libero perferendis vel qui quasi possimus autem, quisquam nemo doloribus fugit commodi molestiae.</p>
+                            <p className='text-gray-700 leading-relaxed'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis dignissimos ipsam animi sed, deleniti odio labore mollitia quis hic esse ipsum ex? Doloremque iure laborum saepe labore ullam.</p>
                             <p className='font-semibold text-gray-800'>We're glad you're here.</p>
                         </div>
                     </div>
@@ -78,12 +78,12 @@ export const Home = () => {
                 {/* Services */}
 
                 <div className='bg-white'>
-                    <div className='flex flex-col items-center p-12'>
-                        <h1 className='text-3xl font-bold p-4'>Our Services</h1>
+                    <div className='flex flex-col items-center p-8 md:p-12'>
+                        <h1 className='text-3xl md:text-4xl font-bold p-4'>Our Services</h1>
                         <br />
-                        <div className='p-4 text-center'>
+                        <div className='mx-4 sm:mx-16 md:mx-32 p-4 text-center'>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo est, assumenda eligendi perspiciatis sed ea enim exercitationem veritatis voluptatem blanditiis, dolore maxime similique, molestiae deleniti! Doloremque quo dolore distinctio molestias?</p><br />
-                            <button className='bg-black text-white p-3 px-6'>Watch Live</button>
+                            <button className='bg-black text-white p-3 px-8'>Watch Live</button>
                         </div>
                     </div>
                 </div>
@@ -91,34 +91,28 @@ export const Home = () => {
                 {/* Card Sections */}
 
                 <div className='bg-gray-100 py-16'>
-                    <div className='max-w-4xl mx-auto flex flex-col gap-12 px-18'>
-                        {card_items.map((item, idx) => {
-                            const imgEl = (
-                                <div className='w-60 shrink-0'>
-                                    <img src={item.image} alt={item.title} className='w-full h-full object-cover rounded shadow' />
+                    <div className='max-w-6xl mx-auto flex flex-col gap-12 px-8'>
+                        {card_items.map((item, idx) => (
+                            <div key={idx} className={`flex flex-col md:flex-row items-stretch gap-4 md:gap-10 ${idx % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+                                <div className='w-full md:w-100 shrink-0'>
+                                    <img src={item.image} alt={item.title} className='w-full h-56 md:h-full object-cover rounded shadow' />
                                 </div>
-                            )
-                            const textEl = (
-                                <div className='flex flex-col justify-center bg-white p-15 flex-1'>
-                                    <h2 className='text-xl font-bold mb-2'>{item.title}</h2>
-                                    <p className='text-gray-600 leading-relaxed text-sm'>{item.description}</p>
+                                <div className='flex flex-col justify-center bg-white p-8 md:p-22 flex-1'>
+                                    <h2 className='px-3 text-2xl md:text-3xl font-bold mb-2'>{item.title}</h2>
+                                    <p className='px-3 text-gray-600 leading-relaxed text-sm'>{item.description}</p>
                                 </div>
-                            )
-                            return (
-                                <div key={idx} className='flex items-stretch gap-10'>
-                                    {idx % 2 === 0 ? <>{imgEl}{textEl}</> : <>{textEl}{imgEl}</>}
-                                </div>
-                            )
-                        })}
+                            </div>
+                        ))}
                     </div>
                 </div>
 
 
                 {/* Church Visions */}
 
-                <div className='w-full h-25 bg-linear-to-r/srgb from-indigo-500 to-teal-400'>
-                    <div className='w-full h-full flex justify-center p-8'>
-                        <h3 className='text-white font-bold text-xl'>Our Church Vision Page</h3>
+                <div className='py-8 w-full bg-linear-to-r/srgb from-blue-800 to-green-800'>
+                    <div className='w-full h-full flex flex-col items-center p-8'>
+                        <h3 className='text-white font-bold m-4 p-3 text-2xl md:text-4xl'>Page Reference Here</h3>
+                        <button className='bg-primary text-white m-4 p-3 px-14'>Button to page</button>
                     </div>
                 </div>
 
@@ -126,12 +120,12 @@ export const Home = () => {
                 {/* Upcoming events*/}
 
                 <div className='w-full bg-gray-100 py-16'>
-                    <div className='max-w-4xl mx-auto px-8 flex flex-col gap-10'>
+                    <div className='max-w-6xl mx-auto px-8 flex flex-col gap-10'>
                         <h1 className='text-black text-2xl font-semibold text-center'>Events</h1>
-                        <div className='grid grid-cols-4 gap-6'>
+                        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
                             {event_items.map((event, idx) => (
                                 <div key={idx} className='bg-white rounded shadow overflow-hidden flex flex-col'>
-                                    <img src={event.image} alt={event.title} className='w-full h-36 object-cover' />
+                                    <img src={event.image} alt={event.title} className='w-full h-54 object-cover' />
                                     <div className='p-4 flex flex-col gap-1 flex-1'>
                                         <h2 className='font-bold text-sm'>{event.title}</h2>
                                         <p className='text-xs text-primary font-semibold'>{event.date}</p>
@@ -146,7 +140,7 @@ export const Home = () => {
                 {/* Location */}
                 <div className='w-full bg-white py-16'>
                     <div className='max-w-4xl mx-auto px-8 flex flex-col gap-8'>
-                        <div className='flex gap-10 items-stretch'>
+                        <div className='flex flex-col lg:flex-row gap-8 lg:gap-10 items-stretch'>
                             <div className='flex-1'>
                                 <iframe
                                     src="https://maps.google.com/maps?q=4318+Robertson+St,+Houston,+TX+77009&output=embed"

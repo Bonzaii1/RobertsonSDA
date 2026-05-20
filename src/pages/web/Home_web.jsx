@@ -9,7 +9,7 @@ export const Home_web = ({ card_items, event_items }) => {
                 <Navbar />
 
                 {/* Hero */}
-                <div className='flex justify-end text-white w-full bg-[url("/church_background.jpg")] bg-cover bg-top-left relative py-14 animate-fadeInBase'>
+                <div className='flex justify-end text-white w-full bg-[url("/church_background.png")] bg-cover bg-center relative py-14 animate-fadeInBase'>
                     <div className='absolute inset-0 bg-linear-to-r from-transparent from-40% to-gray-900' />
                     <div className='relative mx-24 my-16 p-12 text-right flex flex-col gap-6'>
                         <div className='flex flex-col gap-2'>

@@ -15,19 +15,19 @@ export const Home = () => {
 
     const card_items = [
         {
-            title: "Card Title One",
-            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum dolor ipsum unde eligendi dolores nulla deserunt omnis libero perferendis vel qui quasi possimus autem.",
-            image: "/church_background.jpg",
+            title: "Escuela Sabatica",
+            description: <>Nuestra Escuela sabatica se toma en el Sanctuario para los Adultos y en los salones de clases para los niños.<br /> <br />El programa comienza a las 9:30</>,
+            image: "/sabbath_school.png",
         },
         {
-            title: "Card Title Two",
-            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum dolor ipsum unde eligendi dolores nulla deserunt omnis libero perferendis vel qui quasi possimus autem.",
-            image: "/church_background.jpg",
+            title: "Culto Divino",
+            description: "Nuestro Culto divino estara en el sanctuario justo despues de Escuela Sabatica a partir de las 10:30",
+            image: "/culto_divino.png",
         },
         {
-            title: "Card Title Three",
-            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum dolor ipsum unde eligendi dolores nulla deserunt omnis libero perferendis vel qui quasi possimus autem.",
-            image: "/church_background.jpg",
+            title: "Thrive Ministries",
+            description: "Our English Program will take place in our upstairs Thrive room starting at 10:45",
+            image: "/young_adult.png",
         },
     ]
 

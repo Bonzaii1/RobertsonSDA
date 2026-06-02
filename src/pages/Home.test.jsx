@@ -29,9 +29,9 @@ describe('Home', () => {
 
   it('renders all three card items', () => {
     render(<Home />)
-    expect(screen.getByText('Card Title One')).toBeInTheDocument()
-    expect(screen.getByText('Card Title Two')).toBeInTheDocument()
-    expect(screen.getByText('Card Title Three')).toBeInTheDocument()
+    expect(screen.getByText('Escuela Sabatica')).toBeInTheDocument()
+    expect(screen.getByText('Culto Divino')).toBeInTheDocument()
+    expect(screen.getByText('Thrive Ministries')).toBeInTheDocument()
   })
 
   it('renders the events section with event list', () => {

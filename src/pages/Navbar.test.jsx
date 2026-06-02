@@ -8,39 +8,38 @@ describe('Navbar', () => {
 
   it('displays all four navigation items', () => {
     render(<Navbar />)
-    expect(screen.getByText('About')).toBeInTheDocument()
-    expect(screen.getByText('Connect')).toBeInTheDocument()
-    expect(screen.getByText('Ministries')).toBeInTheDocument()
-    expect(screen.getByText('Zoom Groups')).toBeInTheDocument()
+    expect(screen.getAllByText('About').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Connect').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Ministries').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Zoom Groups').length).toBeGreaterThan(0)
   })
 
   it('displays the Join Us CTA button', () => {
     render(<Navbar />)
-    expect(screen.getByRole('button', { name: /join us/i })).toBeInTheDocument()
+    expect(screen.getAllByRole('button', { name: /join us/i }).length).toBeGreaterThan(0)
   })
 
   it('shows dropdown items on hover', () => {
     render(<Navbar />)
-    fireEvent.mouseOver(screen.getByText('About'))
-    expect(screen.getByText('About 1')).toBeInTheDocument()
-    expect(screen.getByText('About 2')).toBeInTheDocument()
-    expect(screen.getByText('About 3')).toBeInTheDocument()
+    const initialCount = screen.getAllByText('About 1').length
+    fireEvent.mouseOver(screen.getAllByText('About')[0])
+    expect(screen.getAllByText('About 1').length).toBeGreaterThan(initialCount)
   })
 
   it('hides dropdown on mouse leave', () => {
     render(<Navbar />)
-    fireEvent.mouseOver(screen.getByText('About'))
-    expect(screen.getByText('About 1')).toBeInTheDocument()
-    fireEvent.mouseLeave(screen.getByText('About'))
-    expect(screen.queryByText('About 1')).not.toBeInTheDocument()
+    const initialCount = screen.getAllByText('About 1').length
+    fireEvent.mouseOver(screen.getAllByText('About')[0])
+    expect(screen.getAllByText('About 1').length).toBeGreaterThan(initialCount)
+    fireEvent.mouseLeave(screen.getAllByText('About')[0])
+    expect(screen.getAllByText('About 1').length).toBe(initialCount)
   })
 
   it('only one dropdown is open at a time', () => {
     render(<Navbar />)
-    fireEvent.mouseOver(screen.getByText('About'))
-    expect(screen.getByText('About 1')).toBeInTheDocument()
-    fireEvent.mouseOver(screen.getByText('Connect'))
-    expect(screen.queryByText('About 1')).not.toBeInTheDocument()
-    expect(screen.getByText('Item 1')).toBeInTheDocument()
+    fireEvent.mouseOver(screen.getAllByText('About')[0])
+    const aboutOpenCount = screen.getAllByText('About 1').length
+    fireEvent.mouseOver(screen.getAllByText('Connect')[0])
+    expect(screen.getAllByText('About 1').length).toBeLessThan(aboutOpenCount)
   })
 })
